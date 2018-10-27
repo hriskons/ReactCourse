@@ -1,11 +1,15 @@
 import React from "react";
+import Box from "./Box"
+import Hero from "./Hero"
 import "react-bootstrap"
-import DataFetching from "./DataFetching";
 
 const App = (props) => {
     return (
         <div>
-            <DataFetching />
+            <button>{props.buttonName}</button>
+            <h1>{props.title}</h1>
+            <Hero heroName = {"Superman"}></Hero>
+            <Box boxType = {"Red Box"}></Box>
         </div>
     )
 }
