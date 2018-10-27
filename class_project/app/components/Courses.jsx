@@ -7,4 +7,11 @@ const Courses = (props) => {
     )
 }
 
+const CourseItem = (props) => {
+    return(
+        <div>
+        </div>
+    )
+}
+
 export default Box;

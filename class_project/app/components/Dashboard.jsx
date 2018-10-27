@@ -8,4 +8,18 @@ const Dashboard = (props) => {
     )
 }
 
+const CourseTable = (props) => {
+    return (
+        <div>
+        </div>
+    )
+}
+
+const StatItem = (props) => {
+    return (
+        <div>
+        </div>
+    )
+}
+
 export default App;
