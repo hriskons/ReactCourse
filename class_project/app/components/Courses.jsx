@@ -14,4 +14,5 @@ const CourseItem = (props) => {
     )
 }
 
-export default Box;
+export default Courses;
+// export default CourseItem;

@@ -1,9 +1,11 @@
 import React from "react";
+
 import "react-bootstrap"
 
 const Dashboard = (props) => {
     return (
         <div>
+            <MainRouter />
         </div>
     )
 }
@@ -22,4 +24,6 @@ const StatItem = (props) => {
     )
 }
 
-export default App;
+export default Dashboard;
+// export default CourseTable;
+// export default StatItem;

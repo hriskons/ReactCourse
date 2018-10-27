@@ -8,4 +8,4 @@ const  Courses = (props) => {
     )
 }
 
-export default  Hero;
+export default  Courses;
