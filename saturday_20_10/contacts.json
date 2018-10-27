@@ -1,0 +1,188 @@
+{ "code": 200,
+  "contacts":[
+  {
+    "name": "Mark",
+    "surname": "Cook",
+    "gender": "male",
+    "address": "52 East Forest Rd. mRockford, MI 49341",
+    "age": 27,
+    "title": "mr",
+    "phone": "(396) 881 3396",
+    "birthday": {
+      "dmy": "09/08/1990",
+      "mdy": "08/09/1990",
+      "raw": 650246246
+    },
+    "email": "markcook@example.com",
+    "password": "Arroyo90%+",
+    "credit_card": {
+      "expiration": "12/21",
+      "number": "8199-7234-4646-1728",
+      "pin": 4608,
+      "security": 451
+    },
+    "photo": "https://uinames.com/api/photos/male/3.jpg"
+  },
+  {
+    "name": "Petra",
+    "surname": "Hawkins",
+    "gender": "female",
+    "address": "792 Shady Drive Homestead4",
+    "age": 26,
+    "title": "ms",
+    "phone": "(378) 834 1342",
+    "birthday": {
+      "dmy": "12/06/1991",
+      "mdy": "06/12/1991",
+      "raw": 676702960
+    },
+    "email": "petrah@example.com",
+    "password": "Nicolau91)=",
+    "credit_card": {
+      "expiration": "8/24",
+      "number": "7110-2552-7008-1537",
+      "pin": 6169,
+      "security": 232
+    },
+    "photo": "https://uinames.com/api/photos/female/10.jpg"
+  },
+  {
+    "name": "Shane",
+    "surname": "Richard",
+    "gender": "male",
+    "address": "123 6th St. Melbourne, FL 32904",
+    "age": 23,
+    "title": "mr",
+    "phone": "(306) 455 9059",
+    "birthday": {
+      "dmy": "22/06/1994",
+      "mdy": "06/22/1994",
+      "raw": 772276956
+    },
+    "email": "shanerich@example.com",
+    "password": "Λαμπρόπουλος94$+",
+    "credit_card": {
+      "expiration": "6/21",
+      "number": "3758-6201-2558-1110",
+      "pin": 4871,
+      "security": 933
+    },
+    "photo": "https://uinames.com/api/photos/male/2.jpg"
+  },
+  {
+    "name": "Banon",
+    "surname": "Martin",
+    "gender": "male",
+    "address": "4 Goldfield Rd. Honolulu, HI 96815",
+    "age": 30,
+    "title": "mr",
+    "phone": "(356) 725 2249",
+    "birthday": {
+      "dmy": "09/02/1987",
+      "mdy": "02/09/1987",
+      "raw": 539908125
+    },
+    "email": "banonmart@example.com",
+    "password": "Захаров87_{",
+    "credit_card": {
+      "expiration": "4/19",
+      "number": "3217-4543-4220-9077",
+      "pin": 3770,
+      "security": 192
+    },
+    "photo": "https://uinames.com/api/photos/male/13.jpg"
+  },
+  {
+    "name": "Behra",
+    "surname": "Paulo",
+    "gender": "male",
+    "address": "44 Shirley Ave. West Chicago, IL 60185",
+    "age": 35,
+    "title": "mr",
+    "phone": "(401) 976 2837",
+    "birthday": {
+      "dmy": "24/01/1982",
+      "mdy": "01/24/1982",
+      "raw": 380729369
+    },
+    "email": "behrapaul@example.com",
+    "password": "Pavka82%=",
+    "credit_card": {
+      "expiration": "6/25",
+      "number": "8791-7134-3046-2882",
+      "pin": 2590,
+      "security": 327
+    },
+    "photo": "https://uinames.com/api/photos/male/18.jpg"
+  },
+  {
+    "name": "Helen",
+    "surname": "Kit",
+    "gender": "female",
+    "address": "514 S. Magnolia St. Orlando, FL 32806",
+    "age": 35,
+    "title": "ms",
+    "phone": "(268) 299 4757",
+    "birthday": {
+      "dmy": "16/11/1982",
+      "mdy": "11/16/1982",
+      "raw": 406274774
+    },
+    "email": "helenkit@example.com",
+    "password": "Herța82$$",
+    "credit_card": {
+      "expiration": "12/25",
+      "number": "2146-8771-9525-3751",
+      "pin": 5012,
+      "security": 857
+    },
+    "photo": "https://uinames.com/api/photos/female/23.jpg"
+  },
+  {
+    "name": "Stan",
+    "surname": "King",
+    "gender": "male",
+    "address": "170 Bowman St. South Windsor, CT",
+    "age": 29,
+    "title": "mr",
+    "phone": "(136) 346 7864",
+    "birthday": {
+      "dmy": "05/04/1988",
+      "mdy": "04/05/1988",
+      "raw": 576225751
+    },
+    "email": "stanlee@example.com",
+    "password": "涛88$",
+    "credit_card": {
+      "expiration": "2/18",
+      "number": "4773-8309-5611-1921",
+      "pin": 2307,
+      "security": 823
+    },
+    "photo": "https://uinames.com/api/photos/male/9.jpg"
+  },
+  {
+    "name": "Chang",
+    "surname": "Stanner",
+    "gender": "male",
+    "address": "71 Pilgrim Avenue Chevy Chase",
+    "age": 23,
+    "title": "mr",
+    "phone": "(398) 733 1596",
+    "birthday": {
+      "dmy": "28/06/1994",
+      "mdy": "06/28/1994",
+      "raw": 772839210
+    },
+    "email": "changstan@example.com",
+    "password": "Moen94){",
+    "credit_card": {
+      "expiration": "6/21",
+      "number": "8621-4532-5025-6129",
+      "pin": 7269,
+      "security": 106
+    },
+    "photo": "https://uinames.com/api/photos/male/11.jpg"
+  }
+]
+}
