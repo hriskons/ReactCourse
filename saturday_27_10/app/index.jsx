@@ -7,7 +7,7 @@ import {Panel, Badge} from "react-bootstrap"
 ReactDOM.render(
   <Panel>
     <Panel.Body>
-      <App title = {"Hero"} buttonName = {"Button"}/>
+      <App />
     </Panel.Body>
   </Panel>
 ,
