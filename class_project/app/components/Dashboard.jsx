@@ -5,7 +5,7 @@ import "react-bootstrap"
 const Dashboard = (props) => {
     return (
         <div>
-            <MainRouter />
+            {/* <MainRouter /> */}
         </div>
     )
 }
