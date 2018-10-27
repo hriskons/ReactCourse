@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const  AddNewCourse = (props) => {
+const  AddCourse = (props) => {
     return (
         <div>
         </div>
