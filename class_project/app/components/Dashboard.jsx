@@ -25,5 +25,3 @@ const StatItem = (props) => {
 }
 
 export default Dashboard;
-// export default CourseTable;
-// export default StatItem;

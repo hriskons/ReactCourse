@@ -15,4 +15,3 @@ const CourseItem = (props) => {
 }
 
 export default Courses;
-// export default CourseItem;
