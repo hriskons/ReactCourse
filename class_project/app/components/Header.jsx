@@ -8,23 +8,21 @@ import AddCourse from "./AddCourse";
 
 const  Header = (props) => {
     return (
-                <Router>
+        <Router>
             <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
-             <Link to="/">Dashboard</Link>
-             <Link to="/courses">Courses</Link>
-             <Link to="/courses/:id">Course</Link>
-             <Link to="/add-course">Add Course</Link>
-             <hr />
-        <Route exact path="/" component={Dashboard} />
-        <Route path="/courses" component={Courses} />
-        <Route path="/courses/:id" component={Course} />
-        <Route path="/add-course" component={AddCourse} />
+                <Link to="/">Dashboard</Link>
+                <Link to="/courszes">Courses</Link>
+                <Link to="/courses/:id">Course</Link>
+                <Link to="/add-course">Add Course</Link>
 
-        
-        </div>  
-        
+                <hr />
+
+                <Route exact path="/" component={Dashboard} />
+                <Route path="/courses" component={Courses} />
+                <Route path="/courses/:id" component={Course} />
+                <Route path="/add-course" component={AddCourse} />
+            </div>  
         </Router>
-
     )
 }
 
