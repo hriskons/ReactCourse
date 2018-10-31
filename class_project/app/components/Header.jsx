@@ -11,7 +11,7 @@ const  Header = (props) => {
         <Router>
             <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
                 <Link to="/">Dashboard</Link>
-                <Link to="/courszes">Courses</Link>
+                <Link to="/courses">Courses</Link>
                 <Link to="/courses/:id">Course</Link>
                 <Link to="/add-course">Add Course</Link>
 
