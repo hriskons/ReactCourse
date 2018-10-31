@@ -1,20 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./app.css";
+import Header from "./components/Header";
 
-import Course from "./components/Course"
-import AddCourse from "./components/AddCourse"
-import Courses from "./components/Courses"
-import Dashboard from "./components/Dashboard"
+import "./app.css";
+import {Panel} from "react-bootstrap";
+
 
 ReactDOM.render(
-  <Router>
-    <Dashboard />
-      <Route exact path="/" component={Dashboard} />
-    <Route path="/courses" component={Courses} />
-    <Route path="/courses/:id" component={Course} />
-    <Route path="/add-course" component={AddCourse} />
-  </Router>
+  <Panel>
+    <Panel.Body>
+      <Header></Header>
+    </Panel.Body>
+  </Panel>
 ,
   document.getElementById("app")
 );
