@@ -28,26 +28,6 @@ function CoursePanel(props) {
     );
 }
 
-function CoursesGrid (props) {
-    let rows = [];
-    for (var i = 0; i <= (+props.items.length) % 3 ; i++){
-        let cell = [];
-
-        for (var idx = i*3; idx < i * 3 + 3 && idx < (+props.items.length); idx++){
-            cell.push(
-                <CoursePanel imagePath = {props.items[idx].imagePath} price = {props.items[idx].price.normal} title = {props.items[idx].title} id = {props.items[idx].id} days = { props.items[idx].duration } dates = {props.items[idx].dates}key={idx}/>
-            );
-        }
-
-        rows.push(<Row className="show-grid" key={i}>{cell}</Row>)
-    }
-    return (
-        <div>
-            {rows}
-        </div>
-    );
-}
-
 class Courses extends React.Component {
 
     constructor(props) {
@@ -98,14 +78,5 @@ class Courses extends React.Component {
         }
     }
 }
-
-const CourseItem = (props) => {
-    return(
-        <div>
-        </div>
-    )
-}
-
-
 
 export default Courses;
