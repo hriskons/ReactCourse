@@ -1,6 +1,32 @@
 import React from "react";
+import {Grid,Row,Col,Panel,Image,Button} from 'react-bootstrap'
 
 const coursesAPI = 'http://localhost:3000/courses';
+
+
+function CoursePanel(props) {
+    return (
+        <div>
+            <Col lg={4} md={6} sm={12} key = {props.id} clearfix>
+                <Panel>
+                    <Panel.Heading>
+                        <Panel.Title componentClass="h3">{props.title}</Panel.Title>
+                    </Panel.Heading>
+                    <Image src={props.imagePath} responsive />
+                    <Panel.Body>
+                        Price: <b>{props.price}{'\u20AC'}</b> | Bookable:
+                        <br/>
+                        Duration: <b>{props.days}</b>
+                        <br/>
+                        Dates: <b> {props.dates.start_date} - {props.dates.end_date} </b>
+                        <br/>
+                        <Button>View</Button>
+                    </Panel.Body>
+                </Panel>
+            </Col>
+        </div>
+    );
+}
 
 class Courses extends React.Component {
 
@@ -26,6 +52,8 @@ class Courses extends React.Component {
         });
     }
 
+    
+
     render() {
         const { error, isLoaded, items } = this.state;
         if (error) {
@@ -37,25 +65,18 @@ class Courses extends React.Component {
                 <div>
                     <ul className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
                         Contacts
-                        {items.map(item => (
-                            <li key={item.id}>
-                                {item.id} {item.title} <img src = {item.imagePath} />
-                            </li>
-                        ))}
+                        <Grid>
+                            <Row className="show-grid">
+                            {items.map(item => (
+                                <CoursePanel imagePath = {item.imagePath} price = {item.price.normal} title = {item.title} id = {item.id} days = { item.duration } dates = {item.dates} key={item.id}/>
+                            ))}
+                            </Row>
+                        </Grid>
                     </ul>
                 </div>
             );
         }
     }
 }
-
-const CourseItem = (props) => {
-    return(
-        <div>
-        </div>
-    )
-}
-
-
 
 export default Courses;
