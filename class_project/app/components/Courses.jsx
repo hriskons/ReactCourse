@@ -6,13 +6,13 @@ const coursesAPI = 'http://localhost:3000/courses';
 
 function CoursePanel(props) {
     return (
-        <div class="container-fluid">
+        <div>
             <Col lg={4} md={6} sm={12} key = {props.id}>
-                <Panel>
+                <Panel className ="panel">
                     <Panel.Heading>
                         <Panel.Title componentClass="h3">{props.title}</Panel.Title>
                     </Panel.Heading>
-                    <Image src={props.imagePath} responsive />
+                    <Image src={props.imagePath} responsive className="imagePanel"/>
                     <Panel.Body>
                         Price: <b>{props.price}{'\u20AC'}</b> | Bookable:
                         <br/>
@@ -20,7 +20,7 @@ function CoursePanel(props) {
                         <br/>
                         Dates: <b> {props.dates.start_date} - {props.dates.end_date} </b>
                         <br/>
-                        <Button>View</Button>
+                        <Col lg = {3} mdPush ={9}> <Button>View</Button> </Col>
                     </Panel.Body>
                 </Panel>
             </Col>
@@ -51,8 +51,6 @@ class Courses extends React.Component {
             });
         });
     }
-
-    
 
     render() {
         const { error, isLoaded, items } = this.state;
