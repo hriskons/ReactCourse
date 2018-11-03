@@ -1,5 +1,6 @@
 body {
     background-color: whitesmoke;
+    color: black;
     padding: 20px;
     margin: 0;
 }
@@ -11,49 +12,41 @@ body {
   }
 
 h1, h2, p, ul, li {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
 }
 
 .header {
-    overflow: hidden;
     background-color: #111526;
+    overflow: hidden;
     padding: 20px 10px;
     border-radius: 15px 15px;
   }
 
-
   .header a {
     float: left;
     color: whitesmoke;
+    text-decoration: none;
     text-align: center;
     padding: 15px;
-    text-decoration: none;
     font-size: 18px; 
     line-height: 25px;
     border-radius: 15px 15px;
   }
   
-  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-  .header a.logo {
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
   /* Change the background color on mouse-over */
   .header a:hover {
-    background-color: #ddd;
+    text-decoration: underline;
     border-radius: 15px 15px;
-    color: black;
   }
   
   .app-style {
-    width: 100%;
-    padding: 25px;
-    background-color: coral;
-    color: white;
-    font-size: 25px;
     overflow: hidden;
+    padding: 25px;
+    color: white;
+    background-color: gainsboro;
+    font-size: 25px;
     position:relative;
+    border-radius: 15px 15px;
     margin: 20px 40px 10px 40px;
-}
+  }
 
