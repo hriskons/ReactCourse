@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "api": "json-server db.json",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development --hot --inline --port 8080 --open",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development --hot --inline --port 8080",
     "build": "webpack --mode production",
     "lint": "eslint --ext .jsx --ext .js app",
     "lint:fix": "npm run lint -- --fix"
