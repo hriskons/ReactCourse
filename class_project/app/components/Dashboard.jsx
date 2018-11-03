@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
           error: null,
           isLoaded: false,
           items: []
-        };
+        }; 
       }
 
       componentDidMount = () => {

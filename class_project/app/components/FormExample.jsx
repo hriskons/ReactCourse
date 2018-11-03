@@ -1,10 +1,10 @@
 import React from 'react';
 import {FormGroup, ControlLabel, HelpBlock, FormControl, Panel, DropdownButton,
-  Radio, Checkbox, Button, Form, Col, InputGroup, Glyphicon, MenuItem, Grid, Row} from 'react-bootstrap';
+  Radio, Checkbox, Button, Form, Col, InputGroup, Glyphicon, MenuItem} from 'react-bootstrap';
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
-    <FormGroup controlId={id}  style={{margin:"20px"}}>
+    <FormGroup controlId={id}>
       <ControlLabel>{label}</ControlLabel>
       <FormControl {...props} />
       {help && <HelpBlock>{help}</HelpBlock>}
@@ -12,7 +12,7 @@ function FieldGroup({ id, label, help, ...props }) {
   );
 }
 
-class AddCourse extends React.Component {
+class FormExample extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -28,90 +28,103 @@ class AddCourse extends React.Component {
   }
 
   render() {
-  const panelBackground =
-  {
-    backgroundColor: '#f2f2f2'
-   
-
-  };
-
     return (
       <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
-        <Panel style={panelBackground} bsClass="panelBackground">
-          <Panel.Heading style={{fontSize:"2em"}}>Add Course</Panel.Heading>
-           <Panel.Body>
-           <form>
-           <FieldGroup
-             id="formControlsText"
-             type="text"
-             label="Title"
-             placeholder="Title"
-           />
-            <FieldGroup
-              id="formControlsDuration"
-              type="text"
-              label="Duration"
-              placeholder="Duration"
-            />
-            <FieldGroup
-              id="formControlsImagePath"
-              type="text"
-              label="Image Path"
-              help="Image Path"
-            />
+        <Panel>
+          <Panel.Heading>Form Validation</Panel.Heading>
+          <Panel.Body>
+            <form>
+              <FormGroup
+                controlId="formBasicText"
+                validationState="success"
+              >
+                <ControlLabel>Input text validation</ControlLabel>
+                <FormControl
+                  type="text"
+                  value={this.state.value}
+                  placeholder="Enter text"
+                  onChange={this.handleChange}
+                />
+                <FormControl.Feedback />
+              </FormGroup>
+            </form>
+          </Panel.Body>
+        </Panel>
+        <Panel>
+          <Panel.Heading>Form components</Panel.Heading>
+          <Panel.Body>
+            <form>
+              <FieldGroup
+                id="formControlsText"
+                type="text"
+                label="Text"
+                placeholder="Enter text"
+              />
+              <FieldGroup
+                id="formControlsEmail"
+                type="email"
+                label="Email address"
+                placeholder="Enter email"
+              />
+              <FieldGroup id="formControlsPassword" label="Password" type="password" />
+              <FieldGroup
+                id="formControlsFile"
+                type="file"
+                label="File"
+                help="Example block-level help text here."
+              />
 
-            <Checkbox checked readOnly>
-              Checkbox
-            </Checkbox>
-            <Radio checked readOnly>
-              Radio
-            </Radio>
-
-            <FormGroup>
-              <Checkbox inline>1</Checkbox> <Checkbox inline>2</Checkbox>{' '}
-              <Checkbox inline>3</Checkbox>
-            </FormGroup>
-            <FormGroup>
-              <Radio name="radioGroup" inline>
-                1
-              </Radio>{' '}
-              <Radio name="radioGroup" inline>
-                2
-              </Radio>{' '}
-              <Radio name="radioGroup" inline>
-                3
+              <Checkbox checked readOnly>
+                Checkbox
+              </Checkbox>
+              <Radio checked readOnly>
+                Radio
               </Radio>
-            </FormGroup>
 
-            <FormGroup controlId="formControlsSelect">
-              <ControlLabel>Select</ControlLabel>
-              <FormControl componentClass="select" placeholder="select">
-                <option value="select">select</option>
-                <option value="other">...</option>
-              </FormControl>
-            </FormGroup>
-            <FormGroup controlId="formControlsSelectMultiple">
-              <ControlLabel>Multiple select</ControlLabel>
-              <FormControl componentClass="select" multiple>
-                <option value="select">select (multiple)</option>
-                <option value="other">...</option>
-              </FormControl>
-            </FormGroup>
+              <FormGroup>
+                <Checkbox inline>1</Checkbox> <Checkbox inline>2</Checkbox>{' '}
+                <Checkbox inline>3</Checkbox>
+              </FormGroup>
+              <FormGroup>
+                <Radio name="radioGroup" inline>
+                  1
+                </Radio>{' '}
+                <Radio name="radioGroup" inline>
+                  2
+                </Radio>{' '}
+                <Radio name="radioGroup" inline>
+                  3
+                </Radio>
+              </FormGroup>
 
-            <FormGroup controlId="formControlsTextarea">
-              <ControlLabel>Textarea</ControlLabel>
-              <FormControl componentClass="textarea" placeholder="textarea" />
-            </FormGroup>
+              <FormGroup controlId="formControlsSelect">
+                <ControlLabel>Select</ControlLabel>
+                <FormControl componentClass="select" placeholder="select">
+                  <option value="select">select</option>
+                  <option value="other">...</option>
+                </FormControl>
+              </FormGroup>
+              <FormGroup controlId="formControlsSelectMultiple">
+                <ControlLabel>Multiple select</ControlLabel>
+                <FormControl componentClass="select" multiple>
+                  <option value="select">select (multiple)</option>
+                  <option value="other">...</option>
+                </FormControl>
+              </FormGroup>
 
-            <FormGroup>
-              <ControlLabel>Static text</ControlLabel>
-              <FormControl.Static>kztoup@example.com</FormControl.Static>
-            </FormGroup>
+              <FormGroup controlId="formControlsTextarea">
+                <ControlLabel>Textarea</ControlLabel>
+                <FormControl componentClass="textarea" placeholder="textarea" />
+              </FormGroup>
 
-            <Button type="submit">Submit</Button>
-          </form>
-        </Panel.Body>
-     
+              <FormGroup>
+                <ControlLabel>Static text</ControlLabel>
+                <FormControl.Static>kztoup@example.com</FormControl.Static>
+              </FormGroup>
+
+              <Button type="submit">Submit</Button>
+            </form>
+          </Panel.Body>
           </Panel>
           <Panel>
             <Panel.Heading>Inline form</Panel.Heading>
@@ -242,5 +255,4 @@ class AddCourse extends React.Component {
   }
 }
 
-
-export default AddCourse;
+export default FormExample;
