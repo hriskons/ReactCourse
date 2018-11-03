@@ -49,11 +49,11 @@ class TodoAppContainer extends Component {
 
     return (
       <TodoApp
-        todos={todos}
-        toDoInput={toDoInput}
-        updateInput={this.updateInput}
-        addToDo={this.addToDo}
-        toggleDone={this.toggleDone}
+        todos = { todos }
+        toDoInput = { toDoInput }
+        updateInput={ this.updateInput }
+        addToDo={ this.addToDo }
+        toggleDone={ this.toggleDone }
       />
     );
   }
