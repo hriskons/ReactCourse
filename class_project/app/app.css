@@ -15,13 +15,11 @@ h1, h2, p, ul, li {
     border-radius: 15px 15px;
   }
 
-
   .header a {
     float: left;
-    color: whitesmoke;
+    text-decoration: none;
     text-align: center;
     padding: 15px;
-    text-decoration: none;
     font-size: 18px; 
     line-height: 25px;
     border-radius: 15px 15px;
@@ -35,9 +33,9 @@ h1, h2, p, ul, li {
   
   /* Change the background color on mouse-over */
   .header a:hover {
-    background-color: #ddd;
+    color: whitesmoke;
+    text-decoration: underline;
     border-radius: 15px 15px;
-    color: black;
   }
   
   .app-style {
