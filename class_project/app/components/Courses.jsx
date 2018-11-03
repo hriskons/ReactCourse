@@ -59,7 +59,7 @@ class Courses extends React.Component {
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>Loading...</div>;
+            return <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>Pegoo</div>;
         } else {
             return (
                 <div>

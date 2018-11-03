@@ -1,20 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "./components/Header";
+import App from "./components/App";
 
 import "./app.css";
-
-import {Panel} from "react-bootstrap";
-
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <Panel>
-    <Panel.Body>
-      <Header></Header>
-    </Panel.Body>
-  </Panel>
-
+  <BrowserRouter>
+      <App/>
+  </BrowserRouter>
 ,
   document.getElementById("app")
 );
-//test
