@@ -6,8 +6,8 @@ const coursesAPI = 'http://localhost:3000/courses';
 
 function CoursePanel(props) {
     return (
-        <div>
-            <Col lg={4} md={6} sm={12} key = {props.id} clearfix>
+        <div class="container-fluid">
+            <Col lg={4} md={6} sm={12} key = {props.id}>
                 <Panel>
                     <Panel.Heading>
                         <Panel.Title componentClass="h3">{props.title}</Panel.Title>
@@ -68,7 +68,13 @@ class Courses extends React.Component {
                         <Grid>
                             <Row className="show-grid">
                             {items.map(item => (
-                                <CoursePanel imagePath = {item.imagePath} price = {item.price.normal} title = {item.title} id = {item.id} days = { item.duration } dates = {item.dates} key={item.id}/>
+                                <CoursePanel    imagePath = {item.imagePath} 
+                                                price = {item.price.normal} 
+                                                title = {item.title} 
+                                                id = {item.id} 
+                                                days = {item.duration} 
+                                                dates = {item.dates} 
+                                                key={item.id}/>
                             ))}
                             </Row>
                         </Grid>
