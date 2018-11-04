@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import {Col, Badge, Row, Jumbotron, Panel, Table, Button} from "react-bootstrap";
 
@@ -122,13 +123,13 @@ class Dashboard extends React.Component {
                                     {!course.open && <td>&#10006;</td>}
                                     <td>{course.price.normal}&nbsp;{'\u20AC'}</td>
                                     <td>{this.convertDate(course.dates.start_date)}&nbsp;-&nbsp;{this.convertDate(course.dates.end_date)}</td>
-                                    <td style={{textAlign: 'right'}}><Button bsStyle="info" bsSize="xsmall">View details</Button></td>
+                                    <td style={{textAlign: 'right'}}><Link className="btn btn-xs btn-info" to={`/courses:${course.id}`}>View details</Link></td>
                                     </tr>
                                 ))}
                                 </tbody>
                             </Table>
                             <div className="table-footer">
-                                <Button>View All</Button>
+                                <Link className="btn btn-default" to="/courses">View All</Link>
                             </div>
                         </div>
                     </div>
