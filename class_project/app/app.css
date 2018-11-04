@@ -3,8 +3,14 @@ body {
     background-color: whitesmoke;
     padding: 20px;
 }
+  .panel {
+    height: 570px;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+  }
 
-  h1, h2, p, ul, li {
+h1, h2, p, ul, li {
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
 }
 
@@ -91,4 +97,33 @@ ul{
 
   .grid-item .grid-item-button:focus{
     border-radius: 5px 5px 5px 5px !important;
+  }
+  
+  .table-header {
+    background-color: #111526;
+    color: whitesmoke;
+    /* overflow: hidden; */
+    padding: 15px 15px 15px 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .table{
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .table-footer {
+    text-align: right;
+    padding: 5px;
+  }
+
+  .dashboard-panel{
+    height: 60px;
+  }
+
+  .table-container{
+    border-color: black;
+    border-width: 1px;
+    border-style: groove;
+    border-radius: 5px;
   }

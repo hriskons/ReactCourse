@@ -12,7 +12,7 @@ function CoursePanel(props) {
                     <Panel.Heading>
                         <Panel.Title componentClass="h3">{props.title}</Panel.Title>
                     </Panel.Heading>
-                    <Image src={props.imagePath} responsive className="imagePanel"/>
+                    <Image src={props.imagePath} responsive/>
                     <Panel.Body>
                         Price: <b>{props.price}{'\u20AC'}</b> | Bookable:
                         <br/>
