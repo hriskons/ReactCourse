@@ -61,10 +61,11 @@ h1, h2, p, ul, li {
 
   .table{
     font-size: 14px;
+    margin-bottom: 2px;
   }
   .table-footer {
     text-align: right;
-    padding: 15px;
+    padding: 5px;
   }
 
   .dashboard-panel{
