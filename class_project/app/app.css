@@ -1,12 +1,15 @@
 body {
-    background-color: whitesmoke;
     color: black;
+    background-color: whitesmoke;
     padding: 20px;
-    margin: 0;
 }
 
   h1, h2, p, ul, li {
     font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+}
+
+ul{
+  padding: 0px;
 }
 
 .header {
@@ -32,15 +35,60 @@ body {
     text-decoration: underline;
     border-radius: 15px 15px;
   }
-  
-  .app-style {
+
+  body .app-main-component {
     overflow: hidden;
-    padding: 25px;
-    color: white;
-    background-color: gainsboro;
     font-size: 25px;
     position:relative;
+    background-color: whitesmoke;
     border-radius: 15px 15px;
-    margin: 20px 40px 10px 40px;
+    margin: 20px;
   }
 
+  .app-main-component .main-title{
+    color: #111526;
+    font-size: 25px;
+    margin: 25px;
+  }
+
+  .app-main-component .grid {
+    background-color: whitesmoke;
+    padding:  10px 20px 10px 20px !important;
+  }
+
+  .grid .grid-item {
+    color: black;
+    background-color: #111526;
+    font-size: 18px;
+    min-height: 750px;
+    width: auto !important;
+    height: auto !important;
+    margin: 15px;
+    border-radius: 15px 15px !important;
+  }
+
+  .grid-item .grid-item-title {    
+    background-color: #111526;
+    color: gainsboro;
+    padding: 10px;
+    border-radius: 15px 15px 0px 0px !important;
+  }
+
+  .grid-item .grid-item-image {    
+    background-color: #111526;
+  }
+
+  .grid-item .grid-item-body {    
+    background-color: #111526;
+    color: gainsboro;
+    padding: 10px 20px 0px 10px;
+  }
+
+  .grid-item .grid-item-button{
+    padding:  10px;
+    margin: 0% 0% 0% 75%;
+  }
+
+  .grid-item .grid-item-button:focus{
+    border-radius: 5px 5px 5px 5px !important;
+  }
