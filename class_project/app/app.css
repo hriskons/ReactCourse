@@ -42,7 +42,7 @@ h1, h2, p, ul, li {
   .app-style {
     overflow: hidden;
     padding: 25px;
-    color: white;
+    color: black;
     background-color: gainsboro;
     font-size: 25px;
     position:relative;
@@ -50,3 +50,30 @@ h1, h2, p, ul, li {
     margin: 20px 40px 10px 40px;
   }
 
+  .table-header {
+    background-color: #111526;
+    color: whitesmoke;
+    /* overflow: hidden; */
+    padding: 15px 15px 15px 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .table{
+    font-size: 14px;
+  }
+  .table-footer {
+    text-align: right;
+    padding: 15px;
+  }
+
+  .dashboard-panel{
+    height: 60px;
+  }
+
+  .table-container{
+    border-color: black;
+    border-width: 1px;
+    border-style: groove;
+    border-radius: 5px;
+  }
