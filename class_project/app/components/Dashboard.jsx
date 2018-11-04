@@ -82,20 +82,19 @@ class Dashboard extends React.Component {
                     </div>
                     <div className="container">
                         <Row>
-                            {statsItems.map(stat => (
-                                
-                                    <Col xs={12} sm={3}  key={stat.id}>
-                                        <Panel className="dashboard-panel">
-                                            <Panel.Body>
-                                                <Col xs={8} sm={8}>
-                                                    <h5>{stat.title.toUpperCase()}:</h5>
-                                                </Col>
-                                                <Col xs={4} sm={4} >
-                                                    <Badge>{stat.amount} </Badge>
-                                                </Col>   
-                                            </Panel.Body>                                     
-                                        </Panel>                                   
-                                    </Col>                                    
+                            {statsItems.map(stat => (                                
+                                <Col xs={12} sm={3}  key={stat.id}>
+                                    <Panel className="dashboard-panel">
+                                        <Panel.Body>
+                                            <Col xs={8} sm={8}>
+                                                <h5>{stat.title.toUpperCase()}:</h5>
+                                            </Col>
+                                            <Col xs={4} sm={4} >
+                                                <Badge>{stat.amount} </Badge>
+                                            </Col>   
+                                        </Panel.Body>                                     
+                                    </Panel>                                   
+                                </Col>                                    
                             ))}
                             
                         </Row>
