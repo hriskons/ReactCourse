@@ -115,7 +115,7 @@ class Dashboard extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {coursesItems.map(course => (
+                                {coursesItems.slice(-5).map(course => (
                                     <tr key={course.id}>
                                     <td>&#8505;</td>
                                     <td>{course.title}</td>
