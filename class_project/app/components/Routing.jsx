@@ -9,7 +9,7 @@ import NotFoundPage from "./NotFoundPage";
 
 const Routing = () => {
     return (
-        <div className="app-style">
+        <div className="app-main-component">
             <Switch>
                 <Route exact path="/" component={ Dashboard } />
                 <Route path="/courses" component={ Courses } />
