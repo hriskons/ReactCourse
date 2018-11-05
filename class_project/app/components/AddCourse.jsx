@@ -2,6 +2,7 @@ import React from 'react';
 import {FormGroup, ControlLabel, HelpBlock, FormControl, Panel, DropdownButton,
   Radio, Checkbox, Button, Form, Col, InputGroup, Glyphicon, MenuItem, Grid, Row} from 'react-bootstrap';
 
+
 function FieldGroup({ id, label, help, ...props }) {
   return (
     <FormGroup controlId={id}  style={{margin:"20px"}}>
@@ -31,9 +32,9 @@ class AddCourse extends React.Component {
   const panelBackground =
   {
     backgroundColor: '#f2f2f2'
-   
-
   };
+
+ 
 
     return (
       <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
@@ -60,60 +61,28 @@ class AddCourse extends React.Component {
               help="Image Path"
             />
 
-            <Checkbox checked readOnly>
-              Checkbox
-            </Checkbox>
-            <Radio checked readOnly>
-              Radio
-            </Radio>
-
-            <FormGroup>
-              <Checkbox inline>1</Checkbox> <Checkbox inline>2</Checkbox>{' '}
-              <Checkbox inline>3</Checkbox>
-            </FormGroup>
-            <FormGroup>
-              <Radio name="radioGroup" inline>
-                1
-              </Radio>{' '}
-              <Radio name="radioGroup" inline>
-                2
-              </Radio>{' '}
-              <Radio name="radioGroup" inline>
-                3
-              </Radio>
-            </FormGroup>
-
-            <FormGroup controlId="formControlsSelect">
-              <ControlLabel>Select</ControlLabel>
-              <FormControl componentClass="select" placeholder="select">
-                <option value="select">select</option>
-                <option value="other">...</option>
-              </FormControl>
-            </FormGroup>
-            <FormGroup controlId="formControlsSelectMultiple">
-              <ControlLabel>Multiple select</ControlLabel>
-              <FormControl componentClass="select" multiple>
-                <option value="select">select (multiple)</option>
-                <option value="other">...</option>
-              </FormControl>
-            </FormGroup>
-
-            <FormGroup controlId="formControlsTextarea">
-              <ControlLabel>Textarea</ControlLabel>
-              <FormControl componentClass="textarea" placeholder="textarea" />
-            </FormGroup>
-
-            <FormGroup>
-              <ControlLabel>Static text</ControlLabel>
-              <FormControl.Static>kztoup@example.com</FormControl.Static>
-            </FormGroup>
-
-            <Button type="submit">Submit</Button>
+          <Row>
+          <Col xs={4} sm={4} md={4}></Col>
+          <Col xs={2} sm={2} md={2}>
+          <Button disabled='true'
+          bsStyle="buttonStyle"
+           style={{alignContent:"center"}}
+            type="submit"
+            
+            >
+            Submit
+            </Button>
+          </Col>
+          <Col xs={2} sm={2} md={2}>
+          <Button style={{alignContent:"center"}}  type="submit">Cancel</Button>
+          </Col>
+          <Col  xs={4} sm={4} md={4}></Col>
+          </Row>
           </form>
         </Panel.Body>
      
           </Panel>
-          <Panel>
+          {/* <Panel>
             <Panel.Heading>Inline form</Panel.Heading>
             <Panel.Body>
               <Form inline>
@@ -128,8 +97,8 @@ class AddCourse extends React.Component {
                 <Button type="submit">Send</Button>
               </Form>
             </Panel.Body>
-          </Panel>
-          <Panel>
+          </Panel> */}
+          {/* <Panel>
             <Panel.Heading>Horizontal form</Panel.Heading>
             <Panel.Body>
               <Form horizontal>
@@ -163,8 +132,8 @@ class AddCourse extends React.Component {
                 </FormGroup>
               </Form>
             </Panel.Body>
-          </Panel>
-          <Panel>
+          </Panel> */}
+          {/* <Panel>
             <Panel.Heading>Input groups</Panel.Heading>
             <Panel.Body>
               <form>
@@ -236,7 +205,7 @@ class AddCourse extends React.Component {
                 </FormGroup>
               </form>
             </Panel.Body>
-          </Panel>
+          </Panel> */}
       </div>
     );
   }

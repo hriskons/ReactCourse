@@ -8,4 +8,9 @@
     text-align: center;
   }
 
+  .checkbox, .radio{
+    margin-left: 20px;
+
+  }
+
   /* //sas */
