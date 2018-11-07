@@ -20,7 +20,7 @@ function CoursePanel(props) {
                         <br/>
                         Dates: <b> {props.dates.start_date} - {props.dates.end_date} </b>
                         <br/>
-                        <Col lg = {3} mdPush ={9}> <Button>View</Button> </Col>
+                        <Col lg = {3} mdPush ={9}> <Button href={'courses/' + props.id} >View</Button> </Col>
                     </Panel.Body>
                 </Panel>
             </Col>

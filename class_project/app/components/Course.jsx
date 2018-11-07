@@ -1,7 +1,15 @@
 import React from "react";
-import {Grid,Row,Col,PageHeader,Image,Button} from 'react-bootstrap'
+import {Grid,Row,Col,PageHeader,Image,Button,Panel} from 'react-bootstrap'
+import ReactHtmlParser from 'react-html-parser';
 
 const coursesAPI = 'http://localhost:3000/courses';
+
+
+function CourseDescription(props) {
+    return (
+        ReactHtmlParser(props.description)
+    );
+}
 
 
 function CourseDetailPanel(props) {
@@ -11,22 +19,22 @@ function CourseDetailPanel(props) {
                 {props.title} <small>({props.id})</small>
             </PageHeader>
             <Col>
-               <Image src = {props.imagePath} width="400px"/>
+               <Image className="image-banner" src = {props.imagePath}/>
                <Row>
                    <Col lg={2} md={3} sm={6} key = {props.id}>
                         Price: {props.price}{'\u20AC'}
                    </Col>
-                   <Col lg = {4} mdPush ={8}> Duration: {props.days} </Col>
+                   <Col lg = {8} mdPush ={4}> Duration: {props.days} </Col>
                </Row>
                <Row>
                     <Col lg={2} md={3} sm={6} key = {props.id}>
                         Bookable:
                    </Col>
-                   <Col lg = {4} mdPush ={8}> Dates: {props.dates.start_date} - {props.dates.end_date} </Col>
+                   <Col lg = {8} mdPush ={4}> Dates: {props.dates.start_date} - {props.dates.end_date} </Col>
                </Row>
                <Row>
                    <Col>
-                        {props.description}
+                        <CourseDescription description = {props.description}/>
                    </Col>
                </Row>
                <Row>
@@ -50,14 +58,13 @@ class Course extends React.Component {
           isLoaded: false,
           items: []
         };
-      }
+    }
 
     componentDidMount = () => {
         fetch(coursesAPI)
         .then(function(response) {
             return response.json();
         }).then((myJson) => {
-            console.log(myJson);
             console.log(myJson);
             this.setState({
                 isLoaded: true,
@@ -68,6 +75,7 @@ class Course extends React.Component {
 
     render() {
         const { error, isLoaded, items } = this.state;
+        let courseId = this.props.match.params.id - 1;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -79,14 +87,14 @@ class Course extends React.Component {
                         Contacts
                         <Grid>
                             <Row className="show-grid">
-                                <CourseDetailPanel    imagePath = {items[0].imagePath} 
-                                                price = {items[0].price.normal} 
-                                                title = {items[0].title} 
-                                                id = {items[0].id} 
-                                                days = {items[0].duration} 
-                                                dates = {items[0].dates} 
-                                                key={items[0].id}
-                                                description={items[0].description}/>
+                                <CourseDetailPanel    imagePath = {items[courseId].imagePath} 
+                                                price = {items[courseId].price.normal} 
+                                                title = {items[courseId].title} 
+                                                id = {items[courseId].id} 
+                                                days = {items[courseId].duration} 
+                                                dates = {items[courseId].dates} 
+                                                key={items[courseId].id}
+                                                description={items[courseId].description}/>
                             </Row>
                         </Grid>
                     </ul>
