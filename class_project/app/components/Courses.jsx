@@ -34,8 +34,8 @@ class Courses extends React.Component {
         super(props);
         this.state = {
           error: null,
-          isLoaded: false,
-          items: []
+          isCoursesLoaded: false,
+          courses: [],
         };
       }
 
@@ -44,20 +44,21 @@ class Courses extends React.Component {
         .then(function(response) {
             return response.json();
         }).then((myJson) => {
-            console.log(myJson);
             this.setState({
-                isLoaded: true,
-                items: myJson
+                isCoursesLoaded: true,
+                courses: myJson
             });
         });
+
+        
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isCoursesLoaded, courses } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-            return <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>Pegoo</div>;
+        } else if (!isCoursesLoaded) {
+            return <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>Loading...</div>;
         } else {
             return (
                 <div>
@@ -65,14 +66,14 @@ class Courses extends React.Component {
                         Contacts
                         <Grid>
                             <Row className="show-grid">
-                            {items.map(item => (
-                                <CoursePanel    imagePath = {item.imagePath} 
-                                                price = {item.price.normal} 
-                                                title = {item.title} 
-                                                id = {item.id} 
-                                                days = {item.duration} 
-                                                dates = {item.dates} 
-                                                key={item.id}/>
+                            {courses.map(item => (
+                                <CoursePanel    imagePath   = {item.imagePath} 
+                                                price       = {item.price.normal} 
+                                                title       = {item.title} 
+                                                id          = {item.id} 
+                                                days        = {item.duration} 
+                                                dates       = {item.dates} 
+                                                key         = {item.id}/>
                             ))}
                             </Row>
                         </Grid>

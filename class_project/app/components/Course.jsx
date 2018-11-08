@@ -1,13 +1,23 @@
 import React from "react";
-import {Grid,Row,Col,PageHeader,Image,Button,Panel} from 'react-bootstrap'
+import {Grid,Row,Col,PageHeader,Image,Button} from 'react-bootstrap'
 import ReactHtmlParser from 'react-html-parser';
 
 const coursesAPI = 'http://localhost:3000/courses';
-
+const instructorsApi = 'http://localhost:3000/instructors';
 
 function CourseDescription(props) {
     return (
         ReactHtmlParser(props.description)
+    );
+}
+
+function Instructors(props){
+    return(
+        <div key = {props.id} >
+            <h2>{props.name.first} {props.name.last} <small className="text-muted">({props.dob})</small></h2>
+            <h5>Email: <a href={"mailto:" + props.email}>{props.email}</a> | <a href={props.linkedin}>Linkedln</a></h5>
+            <h5>{props.bio}</h5>
+        </div>
     );
 }
 
@@ -32,17 +42,20 @@ function CourseDetailPanel(props) {
                    </Col>
                    <Col lg = {8} mdPush ={4}> Dates: {props.dates.start_date} - {props.dates.end_date} </Col>
                </Row>
+               <br/>
                <Row>
-                   <Col>
+                   <Col lg={12} md={12} sm={12} key = {props.id}>
                         <CourseDescription description = {props.description}/>
                    </Col>
                </Row>
                <Row>
-                   <Button>Edit</Button>
-                   <Button bsStyle="danger">Delete</Button>
+                   <Col lg={12} md={12} sm={12} key = {props.id}> 
+                        <Button>Edit</Button> &nbsp;
+                        <Button bsStyle="danger">Delete</Button>
+                   </Col>
                </Row>
                <Row>
-                   <h3>Instructors</h3>
+                    
                 </Row>
             </Col>
         </div>
@@ -54,9 +67,11 @@ class Course extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          error: null,
-          isLoaded: false,
-          items: []
+            error: null,
+            isCoursesLoaded: false,
+            isInstructorsLoaded: false,
+            courses: [],
+            instructors: []
         };
     }
 
@@ -67,18 +82,29 @@ class Course extends React.Component {
         }).then((myJson) => {
             console.log(myJson);
             this.setState({
-                isLoaded: true,
-                items: myJson
+                isCoursesLoaded: true,
+                courses: myJson
+            });
+        });
+
+        fetch(instructorsApi)
+        .then(function(response) {
+            return response.json();
+        }).then((myJson) => {
+            console.log(myJson);
+            this.setState({
+                isInstructorsLoaded: true,
+                instructors: myJson
             });
         });
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isCoursesLoaded, isInstructorsLoaded, courses, instructors} = this.state;
         let courseId = this.props.match.params.id - 1;
         if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
+        } else if (!isCoursesLoaded || !isInstructorsLoaded) {
             return <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>Pegoo</div>;
         } else {
             return (
@@ -87,14 +113,26 @@ class Course extends React.Component {
                         Contacts
                         <Grid>
                             <Row className="show-grid">
-                                <CourseDetailPanel    imagePath = {items[courseId].imagePath} 
-                                                price = {items[courseId].price.normal} 
-                                                title = {items[courseId].title} 
-                                                id = {items[courseId].id} 
-                                                days = {items[courseId].duration} 
-                                                dates = {items[courseId].dates} 
-                                                key={items[courseId].id}
-                                                description={items[courseId].description}/>
+                                <CourseDetailPanel  imagePath = {courses[courseId].imagePath} 
+                                                    price = {courses[courseId].price.normal} 
+                                                    title = {courses[courseId].title} 
+                                                    id = {courses[courseId].id} 
+                                                    days = {courses[courseId].duration} 
+                                                    dates = {courses[courseId].dates} 
+                                                    description={courses[courseId].description}
+                                                    instructorsData = {instructors}/>
+                            </Row>
+                            <Row>
+                                <h1>Instructors</h1>
+                                {courses[courseId].instructors.map(item => (
+                                                <Instructors    name   = {instructors[+item - 1].name}
+                                                                email  = {instructors[+item - 1].email}
+                                                                id      = {instructors[+item - 1].id}
+                                                                dob     = {instructors[+item - 1].dob}
+                                                                linkedin = {instructors[+item - 1].linkedin}
+                                                                bio     = {instructors[+item - 1].bio}
+                                                                key = {item}/>
+                                    ))}
                             </Row>
                         </Grid>
                     </ul>
