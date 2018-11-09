@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid,Row,Col,Panel,Image,Button} from 'react-bootstrap'
+import {Row,Col,Image,Button} from 'react-bootstrap'
 
 const coursesAPI = 'http://localhost:3000/courses';
 
@@ -8,21 +8,20 @@ function CoursePanel(props) {
     return (
         <div>
             <Col lg={4} md={6} sm={12} key = {props.id}>
-                <Panel className ="panel">
-                    <Panel.Heading>
-                        <Panel.Title componentClass="h3">{props.title}</Panel.Title>
-                    </Panel.Heading>
-                    <Image src={props.imagePath} responsive/>
-                    <Panel.Body>
-                        Price: <b>{props.price}{'\u20AC'}</b> | Bookable:
-                        <br/>
-                        Duration: <b>{props.days}</b>
-                        <br/>
-                        Dates: <b> {props.dates.start_date} - {props.dates.end_date} </b>
-                        <br/>
-                        <Col lg = {3} mdPush ={9}> <Button href={'courses/' + props.id} >View</Button> </Col>
-                    </Panel.Body>
-                </Panel>
+                <div className ="grid-item">
+                    <div className ="grid-item-title">
+                        <div componentclass="h3">{props.title}</div>
+                    </div>
+                    <Image className="grid-item-image" src={props.imagePath} responsive/>
+                    <div className ="grid-item-body">
+                            Price: <b>{props.price}{'\u20AC'}</b> | Bookable:
+                            <br/>
+                            Duration: <b>{props.days}</b>
+                            <br/>
+                            Dates: <b> {props.dates.start_date} - {props.dates.end_date} </b>
+                    </div>
+                    <div className="grid-item-button"> <Button href={'courses/' + props.id} >View</Button> </div>
+                </div>
             </Col>
         </div>
     );
@@ -34,8 +33,8 @@ class Courses extends React.Component {
         super(props);
         this.state = {
           error: null,
-          isCoursesLoaded: false,
-          courses: [],
+          isCoursesLoaded : false,
+          courses: []
         };
       }
 
@@ -43,14 +42,12 @@ class Courses extends React.Component {
         fetch(coursesAPI)
         .then(function(response) {
             return response.json();
-        }).then((myJson) => {
+        }).then((myJson) => {            
             this.setState({
                 isCoursesLoaded: true,
                 courses: myJson
             });
         });
-
-        
     }
 
     render() {
@@ -62,10 +59,9 @@ class Courses extends React.Component {
         } else {
             return (
                 <div>
-                    <ul className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
-                        Contacts
-                        <Grid>
-                            <Row className="show-grid">
+                    <ul>
+                        <span className="main-title">Courses</span>
+                            <Row className="grid">
                             {courses.map(item => (
                                 <CoursePanel    imagePath   = {item.imagePath} 
                                                 price       = {item.price.normal} 
@@ -76,7 +72,6 @@ class Courses extends React.Component {
                                                 key         = {item.id}/>
                             ))}
                             </Row>
-                        </Grid>
                     </ul>
                 </div>
             );
