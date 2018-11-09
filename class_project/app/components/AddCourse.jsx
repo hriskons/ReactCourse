@@ -36,10 +36,24 @@ class AddCourse extends React.Component {
       isCheck1:true,
       isCheck2:false,
       isBookable:false,
+      coursesItems: []
     };
   }
 
   componentDidMount(){
+    console.log("after post");
+    fetch('http://localhost:3000/courses')
+    .then(function(response) {
+        return response.json();
+    }).then((courses) => {
+        this.setState({
+          coursesItems:courses
+        });
+     console.log('retrieve', courses);
+
+    });
+    console.log('1', this.state.coursesItems);
+
     this.initializeFormValues();
   }
 
@@ -81,11 +95,13 @@ class AddCourse extends React.Component {
   }
 
   handleSubmit(e){
+    let id =this.state.coursesItems.length +1;
+    console.log("id", id);
     let instructorSelected = this.state.isCheck1?"01":"02";
     console.log('submit form', this.state.value);
-    var data = {"id": "100","title":this.state.Title, "imagePath": this.state.ImagePath,
+    var data = {"id": id.toString,"title":this.state.Title, "imagePath": this.state.ImagePath,
   "price":{"normal":this.state.Normal, "early_bird":this.state.EarlyBid},
-"date":{start_date:this.state.StartDate, "end_date":this.state.EndDate},
+"dates":{"start_date":this.state.StartDate, "end_date":this.state.EndDate},
 "duration":this.state.Duration, "open":this.state.isBookable,
  "instructors":[
   instructorSelected
