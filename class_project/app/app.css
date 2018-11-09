@@ -129,3 +129,35 @@ ul{
     border-radius: 5px;
   }
 
+  .input-label{
+    font-size: 16px;
+    padding-left:20px;
+    /* padding-top:20px; */
+  }
+
+  .panel-heading{
+    padding-top:15px;
+    padding-left:20px;
+
+  }
+  /* .input-field{
+    /* padding-left:20px;
+    height:85px; */
+
+  .chk-title{
+    display: inline-block;
+    max-width: 100%;
+    padding:20px;
+    font-weight: bold;
+    font-size:16px;
+    padding-bottom: 0px;
+  }
+
+.ckh-field{
+display: inline-block;
+    font-size:14px;
+    padding-left:20px;
+    padding-top:0px;
+    margin-bottom:0px;
+}
+

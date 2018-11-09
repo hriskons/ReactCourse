@@ -14,13 +14,18 @@
   "license": "ISC",
   "dependencies": {
     "axios": "0.18.0",
+    "globalize": "^1.4.0",
     "html-webpack-plugin": "3.2.0",
     "json-server": "0.14.0",
     "prop-types": "15.6.2",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
-    "react-router-dom": "4.3.1"
+    "react-number-format": "^4.0.3",
+    "react-router-dom": "4.3.1",
+    "react-widgets": "^4.4.6",
+    "react-widgets-globalize": "^5.0.15",
+    "react-widgets-moment-localizer": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.1.2",
