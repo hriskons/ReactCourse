@@ -1,173 +1,137 @@
 body {
-    color: black;
-    background-color: whitesmoke;
-    padding: 20px;
+  color: black;
+  background-color: whitesmoke;
+  padding: 20px;
 }
-  .panel {
-    height: 570px;
-    font-size: 20px;
-    background-color: white;
-    color: black;
-  }
+.panel {
+  height: 570px;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+}
 
 h1, h2, p, ul, li {
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
 }
 
 ul{
-  padding: 0px;
+padding: 0px;
 }
 
 .header {
-    background-color: #111526;
-    overflow: hidden;
-    padding: 20px 10px;
-    border-radius: 15px 15px;
-  }
-
-  .header a {
-    float: left;
-    color: whitesmoke;
-    text-decoration: none;
-    text-align: center;
-    padding: 15px;
-    font-size: 18px; 
-    line-height: 25px;
-    border-radius: 15px 15px;
-  }
-  
-  /* Change the background color on mouse-over */
-  .header a:hover {
-    text-decoration: underline;
-    border-radius: 15px 15px;
-  }
-
-  body .app-main-component {
-    overflow: hidden;
-    font-size: 25px;
-    position:relative;
-    background-color: whitesmoke;
-    border-radius: 15px 15px;
-    margin: 20px;
-  }
-
-  .app-main-component .main-title{
-    color: #111526;
-    font-size: 25px;
-    margin: 25px;
-  }
-
-  .app-main-component .grid {
-    background-color: whitesmoke;
-    padding:  10px 20px 10px 20px !important;
-  }
-
-  .grid .grid-item {
-    color: black;
-    background-color: #111526;
-    font-size: 18px;
-    min-height: 750px;
-    width: auto !important;
-    height: auto !important;
-    margin: 15px;
-    border-radius: 15px 15px !important;
-  }
-
-  .grid-item .grid-item-title {    
-    background-color: #111526;
-    color: gainsboro;
-    padding: 10px;
-    border-radius: 15px 15px 0px 0px !important;
-  }
-
-  .grid-item .grid-item-image {    
-    background-color: #111526;
-  }
-
-  .grid-item .grid-item-body {    
-    background-color: #111526;
-    color: gainsboro;
-    padding: 10px 20px 0px 10px;
-  }
-
-  .grid-item .grid-item-button{
-    padding:  10px;
-    margin: 0% 0% 0% 75%;
-  }
-
-  .grid-item .grid-item-button:focus{
-    border-radius: 5px 5px 5px 5px !important;
-  }
-  
-  .table-header {
-    background-color: #111526;
-    color: whitesmoke;
-    /* overflow: hidden; */
-    padding: 15px 15px 15px 15px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
-  .table{
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-  .table-footer {
-    text-align: right;
-    padding: 5px;
-  }
-
-  .dashboard-panel{
-    height: 60px;
-  }
-
-  .table-container{
-    border-color: black;
-    border-width: 1px;
-    border-style: groove;
-    border-radius: 5px;
-  }
-
-<<<<<<< HEAD
-  .input-label{
-    font-size: 16px;
-    padding-left:20px;
-    /* padding-top:20px; */
-  }
-
-  .panel-heading{
-    padding-top:15px;
-    padding-left:20px;
-
-  }
-  /* .input-field{
-    /* padding-left:20px;
-    height:85px; */
-
-  .chk-title{
-    display: inline-block;
-    max-width: 100%;
-    padding:20px;
-    font-weight: bold;
-    font-size:16px;
-    padding-bottom: 0px;
-  }
-
-.ckh-field{
-display: inline-block;
-    font-size:14px;
-    padding-left:20px;
-    padding-top:0px;
-    margin-bottom:0px;
+  background-color: #111526;
+  overflow: hidden;
+  padding: 20px 10px;
+  border-radius: 15px 15px;
 }
 
-=======
-  img.image-banner {
-    object-fit: none; /* Do not scale the image */
-    object-position: top; /* Center the image within the element */
-    width: 100%;
-    max-height: 250px;
-    margin-bottom: 1rem;
-  }
+.header a {
+  float: left;
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 15px 15px;
+}
 
->>>>>>> 34c395324a2963c72bc035a6bd980ca6d60879ea
+/* Change the background color on mouse-over */
+.header a:hover {
+  text-decoration: underline;
+  border-radius: 15px 15px;
+}
+
+body .app-main-component {
+  overflow: hidden;
+  font-size: 25px;
+  position:relative;
+  background-color: whitesmoke;
+  border-radius: 15px 15px;
+  margin: 20px;
+}
+
+.app-main-component .main-title{
+  color: #111526;
+  font-size: 25px;
+  margin: 25px;
+}
+
+.app-main-component .grid {
+  background-color: whitesmoke;
+  padding:  10px 20px 10px 20px !important;
+}
+
+.grid .grid-item {
+  color: black;
+  background-color: #111526;
+  font-size: 18px;
+  min-height: 750px;
+  width: auto !important;
+  height: auto !important;
+  margin: 15px;
+  border-radius: 15px 15px !important;
+}
+
+.grid-item .grid-item-title {    
+  background-color: #111526;
+  color: gainsboro;
+  padding: 10px;
+  border-radius: 15px 15px 0px 0px !important;
+}
+
+.grid-item .grid-item-image {    
+  background-color: #111526;
+}
+
+.grid-item .grid-item-body {    
+  background-color: #111526;
+  color: gainsboro;
+  padding: 10px 20px 0px 10px;
+}
+
+.grid-item .grid-item-button{
+  padding:  10px;
+  margin: 0% 0% 0% 75%;
+}
+
+.grid-item .grid-item-button:focus{
+  border-radius: 5px 5px 5px 5px !important;
+}
+
+.table-header {
+  background-color: #111526;
+  color: whitesmoke;
+  /* overflow: hidden; */
+  padding: 15px 15px 15px 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.table{
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.table-footer {
+  text-align: right;
+  padding: 5px;
+}
+
+.dashboard-panel{
+  height: 60px;
+}
+
+.table-container{
+  border-color: black;
+  border-width: 1px;
+  border-style: groove;
+  border-radius: 5px;
+}
+
+img.image-banner {
+  object-fit: none; /* Do not scale the image */
+  object-position: top; /* Center the image within the element */
+  width: 100%;
+  max-height: 250px;
+  margin-bottom: 1rem;
+}
