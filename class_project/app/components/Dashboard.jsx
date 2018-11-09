@@ -123,7 +123,7 @@ class Dashboard extends React.Component {
                                     {!course.open && <td>&#10006;</td>}
                                     <td>{course.price.normal}&nbsp;{'\u20AC'}</td>
                                     <td>{this.convertDate(course.dates.start_date)}&nbsp;-&nbsp;{this.convertDate(course.dates.end_date)}</td>
-                                    <td style={{textAlign: 'right'}}><Link className="btn btn-xs btn-info" to={`/courses:${course.id}`}>View details</Link></td>
+                                    <td style={{textAlign: 'right'}}><Link className="btn btn-xs btn-info" to={`/courses/${course.id}`}>View details</Link></td>
                                     </tr>
                                 ))}
                                 </tbody>
