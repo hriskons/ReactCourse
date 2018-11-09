@@ -83,9 +83,9 @@ class AddCourse extends React.Component {
   handleSubmit(e){
     let instructorSelected = this.state.isCheck1?"01":"02";
     console.log('submit form', this.state.value);
-    var data = {"id": "100","title":this.state.Title, "imagePath": this.state.ImagePath,
-  "price":{"normal":this.state.Normal, "early_bird":this.state.EarlyBid},
-"date":{start_date:this.state.StartDate, "end_date":this.state.EndDate},
+    var data = {"id": "500","title":this.state.Title, "imagePath": this.state.ImagePath,
+  "price":{"normal":Number(this.state.Normal), "early_bird":Number(this.state.EarlyBid)},
+"dates":{start_date:this.state.StartDate, "end_date":this.state.EndDate},
 "duration":this.state.Duration, "open":this.state.isBookable,
  "instructors":[
   instructorSelected
@@ -184,22 +184,32 @@ class AddCourse extends React.Component {
             <ControlLabel className="sub-title">Dates</ControlLabel>
             <FormGroup controlId="StartDate" bsClass="formGroup">
               <ControlLabel bsClass="label">StartDate</ControlLabel>
-              <FormControl  type="text"
-                            name="StartDate"
-                            onBlur={this.groupValidation}
-                            placeholder="Start Date"
-                            onChange={this.handleChange} />
-              <FormControl.Feedback />
+
+              <FormControl
+              type="date"
+              name="StartDate"
+              max="9999-12-31"
+              onBlur={this.groupValidation}
+              placeholder="Start Date"
+              onChange={this.handleChange}
+            />
+            <FormControl.Feedback />
+
             </FormGroup>
           
             <FormGroup controlId="EndDate" bsClass="formGroup">
               <ControlLabel bsClass="label">EndDate</ControlLabel>
-              <FormControl  type="text"
-                            name="EndDate"
-                            onBlur={this.groupValidation}
-                            placeholder="End Date"
-                            onChange={this.handleChange} />
-              <FormControl.Feedback />
+
+              <FormControl
+              type="date"
+              max="9999-12-31"
+              name="EndDate"
+              onBlur={this.groupValidation}
+              placeholder="End Date"
+              onChange={this.handleChange}
+            />
+            <FormControl.Feedback />
+
             </FormGroup>
 
             <ControlLabel className="sub-title">Price</ControlLabel>
