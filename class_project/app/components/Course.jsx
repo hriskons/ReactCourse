@@ -23,6 +23,16 @@ function Instructors(props){
 
 
 function CourseDetailPanel(props) {
+
+    function handleClick() {
+        fetch(coursesAPI + '/' + props.id, {
+                method: 'DELETE', })
+        .then(function(response) {
+            return response.json();
+        });
+    }
+    
+
     return (
         <div>
             <PageHeader>
@@ -51,12 +61,9 @@ function CourseDetailPanel(props) {
                <Row>
                    <Col lg={12} md={12} sm={12} key = {props.id}> 
                         <Button>Edit</Button> &nbsp;
-                        <Button bsStyle="danger">Delete</Button>
+                        <Button bsStyle="danger" onClick={ handleClick }> Delete</Button>
                    </Col>
                </Row>
-               <Row>
-                    
-                </Row>
             </Col>
         </div>
     );
