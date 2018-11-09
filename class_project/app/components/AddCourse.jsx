@@ -145,45 +145,38 @@ class AddCourse extends React.Component {
  
 
     return (
-      <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>
-        <Panel style={panelBackground} bsClass="panelBackground">
-          <Panel.Heading className="title">Add Course</Panel.Heading>
-           <Panel.Body>
-           <form>
+      <div className ="form">
+        <span className="main-title">Add Course</span>
+        <div className ="form-body">
+          <form>
             <FormGroup controlId="Title" bsClass="formGroup">
               <ControlLabel bsClass="label">Title</ControlLabel>
-              <FormControl
-              type="Text"
-              name="Title"
-              onBlur={this.groupValidation}
-              placeholder="Title"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
+              <FormControl  type="Text"
+                            name="Title"
+                            onBlur={this.groupValidation}
+                            placeholder="Title"
+                            onChange={this.handleChange} />
+              <FormControl.Feedback />
             </FormGroup>
 
-             <FormGroup controlId="Dutation" bsClass="formGroup">
+            <FormGroup controlId="Dutation" bsClass="formGroup">
               <ControlLabel bsClass="label">Duration</ControlLabel>
-              <FormControl
-              type="Text"
-              name="Duration"
-              onBlur={this.groupValidation}
-              placeholder="Dutation"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
+              <FormControl  type="Text"
+                            name="Duration"
+                            onBlur={this.groupValidation}
+                            placeholder="Dutation"
+                            onChange={this.handleChange}/>
+              <FormControl.Feedback />
             </FormGroup>
 
             <FormGroup controlId="ImagePath" bsClass="formGroup">
               <ControlLabel bsClass="label">ImagePath</ControlLabel>
-              <FormControl
-              type="Text"
-              name="ImagePath"
-              onBlur={this.groupValidation}
-              placeholder="Image Path"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
+              <FormControl  type="Text"
+                            name="ImagePath"
+                            onBlur={this.groupValidation}
+                            placeholder="Image Path"
+                            onChange={this.handleChange}/>
+              <FormControl.Feedback />
             </FormGroup>
 
             {/* //checkboxes */}
@@ -196,90 +189,78 @@ class AddCourse extends React.Component {
 
             <FormGroup controlId="Description" bsClass="formGroup">
               <ControlLabel bsClass="label">Description</ControlLabel>
-              <FormControl
-              componentClass="textarea"
-              name="Description"
-              onBlur={this.groupValidation}
-              placeholder="Description"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
+              <FormControl  componentClass="textarea"
+                            name="Description"
+                            onBlur={this.groupValidation}
+                            placeholder="Description"
+                            onChange={this.handleChange}/>
+              <FormControl.Feedback />
             </FormGroup>
 
             <ControlLabel className="sub-title">Dates</ControlLabel>
             <FormGroup controlId="StartDate" bsClass="formGroup">
               <ControlLabel bsClass="label">StartDate</ControlLabel>
+
               <FormControl
-              type="text"
+              type="date"
               name="StartDate"
+              max="9999-12-31"
               onBlur={this.groupValidation}
               placeholder="Start Date"
               onChange={this.handleChange}
             />
             <FormControl.Feedback />
+
             </FormGroup>
-           
+          
             <FormGroup controlId="EndDate" bsClass="formGroup">
               <ControlLabel bsClass="label">EndDate</ControlLabel>
+
               <FormControl
-              type="text"
+              type="date"
+              max="9999-12-31"
               name="EndDate"
               onBlur={this.groupValidation}
               placeholder="End Date"
               onChange={this.handleChange}
             />
             <FormControl.Feedback />
+
             </FormGroup>
 
             <ControlLabel className="sub-title">Price</ControlLabel>
             <FormGroup controlId="EarlyBid" bsClass="formGroup">
               <ControlLabel bsClass="label">EarlyBid</ControlLabel>
-                  <InputGroup>
-                      <FormControl
-                        type="number"
-                        name="EarlyBid"
-                        onBlur={this.groupValidation}
-                        placeholder="Early Bid"
-                        onChange={this.handleChange}
-                      />
-                      <InputGroup.Addon>€</InputGroup.Addon>
-                </InputGroup>
-                 <FormControl.Feedback />
+              <InputGroup>
+                  <FormControl  type="number"
+                                name="EarlyBid"
+                                onBlur={this.groupValidation}
+                                placeholder="Early Bid"
+                                onChange={this.handleChange} />
+                  <InputGroup.Addon>€</InputGroup.Addon>
+                  <FormControl.Feedback />
+              </InputGroup>
             </FormGroup>
 
             <FormGroup controlId="Normal" bsClass="formGroup">
               <ControlLabel bsClass="label">Normal</ControlLabel>
               <InputGroup>
-                      <FormControl
-                        onBlur={this.groupValidation}
-                        name="Normal"
-                        placeholder="Early Bid"
-                        onChange={this.handleChange}
-                        type="number"
-                      />
-                      <InputGroup.Addon>€</InputGroup.Addon>
-                </InputGroup>
-                 <FormControl.Feedback />
-            </FormGroup>
-
-          <Row>
-            <Col xs={9} sm={9} md={9}></Col>
-            <Col xs={2} sm={2} md={2}>
-              <Button 
-                disabled={this.isButtonDisable}
-                className="button-submit"
-                style={{alignContent:"center"}}
-                type="submit"
-                onClick={this.handleSubmit}>
-                Submit
-              </Button>
-          </Col>
-          </Row>
-           
-          
+                <FormControl  onBlur={this.groupValidation}
+                              name="Normal"
+                              placeholder="Early Bid"
+                              onChange={this.handleChange}
+                              type="number" />
+                <InputGroup.Addon>€</InputGroup.Addon>
+                <FormControl.Feedback />
+              </InputGroup>
+            </FormGroup>  
+            <div className="form-button">
+              <Button disabled={this.isButtonDisable}
+                      type="submit"
+                      onClick={this.handleSubmit}> Submit </Button>
+            </div>
           </form>
-        </Panel.Body>
-          </Panel>
+        </div>
       </div>
     );
   }

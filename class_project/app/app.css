@@ -93,6 +93,7 @@ body .app-main-component {
 .grid-item .grid-item-button{
   padding:  10px;
   margin: 0% 0% 0% 75%;
+  align-content:"center";
 }
 
 .grid-item .grid-item-button:focus{
@@ -134,4 +135,41 @@ img.image-banner {
   width: 100%;
   max-height: 250px;
   margin-bottom: 1rem;
+}
+
+.app-main-component .form {
+  background-color: whitesmoke;
+  padding:  10px 20px 10px 20px !important;
+}
+
+/*.form .form-item {
+  color: black;
+  background-color: #111526;
+  font-size: 18px;
+  min-height: 750px;
+  width: auto !important;
+  height: auto !important;
+  margin: 15px;
+  border-radius: 15px 15px !important;
+}
+
+.form .form-title {    
+  background-color: #111526;
+  color: gainsboro;
+  padding: 10px;
+  border-radius: 15px 15px 0px 0px !important;
+}*/
+
+.form .form-body {    
+  background-color: gainsboro;
+  color: #111526;
+  padding: 10px 20px 0px 10px;
+  margin: 15px 15px;
+  border-radius: 15px 15px 0px 0px !important;
+}
+
+.form .form-button{
+  padding:  10px;
+  margin: 0% 0% 0% 75%;
+  align-content:"center";
 }

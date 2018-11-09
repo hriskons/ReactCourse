@@ -23,6 +23,16 @@ function Instructors(props){
 
 
 function CourseDetailPanel(props) {
+
+    function handleClick() {
+        fetch(coursesAPI + '/' + props.id, {
+                method: 'DELETE', })
+        .then(function(response) {
+            return response.json();
+        });
+    }
+    
+
     return (
         <div>
             <PageHeader>
@@ -50,13 +60,10 @@ function CourseDetailPanel(props) {
                </Row>
                <Row>
                    <Col lg={12} md={12} sm={12} key = {props.id}> 
-                        <Button>Edit</Button> &nbsp;
-                        <Button bsStyle="danger">Delete</Button>
+                        <Button href={'edit-course/' + props.id}>Edit</Button> &nbsp;
+                        <Button bsStyle="danger" onClick={ handleClick }> Delete</Button>
                    </Col>
                </Row>
-               <Row>
-                    
-                </Row>
             </Col>
         </div>
     );
@@ -101,7 +108,7 @@ class Course extends React.Component {
 
     render() {
         const { error, isCoursesLoaded, isInstructorsLoaded, courses, instructors} = this.state;
-        let courseId = this.props.match.params.id - 1;
+        let courseId = courses.findIndex((item) => {return (item.id == this.props.match.params.id)});
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isCoursesLoaded || !isInstructorsLoaded) {

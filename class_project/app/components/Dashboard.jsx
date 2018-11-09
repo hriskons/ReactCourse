@@ -72,8 +72,7 @@ class Dashboard extends React.Component {
         } else if (!isLoaded) {
             return <div className="container" style={{marginTop: "50px", maxWidth: "1000px"}}>Loading...</div>;
         } else {
-            return (              
-
+            return (   
                 <div>
                     <div className="container">
                         <Jumbotron>
@@ -84,7 +83,7 @@ class Dashboard extends React.Component {
                     <div className="container">
                         <Row>
                             {statsItems.map(stat => (                                
-                                <Col xs={12} sm={3}  key={stat.id}>
+                                <Col xs={12} sm={6} md={6} lg={3} key={stat.id}>
                                     <Panel className="dashboard-panel">
                                         <Panel.Body>
                                             <Col xs={8} sm={8}>
@@ -96,8 +95,7 @@ class Dashboard extends React.Component {
                                         </Panel.Body>                                     
                                     </Panel>                                   
                                 </Col>                                    
-                            ))}
-                            
+                            ))}                            
                         </Row>
                         <div className="table-container">
                             <div className="table-header">
@@ -123,7 +121,7 @@ class Dashboard extends React.Component {
                                     {!course.open && <td>&#10006;</td>}
                                     <td>{course.price.normal}&nbsp;{'\u20AC'}</td>
                                     <td>{this.convertDate(course.dates.start_date)}&nbsp;-&nbsp;{this.convertDate(course.dates.end_date)}</td>
-                                    <td style={{textAlign: 'right'}}><Link className="btn btn-xs btn-info" to={`/courses:${course.id}`}>View details</Link></td>
+                                    <td style={{textAlign: 'right'}}><Link className="btn btn-xs btn-info" to={`/courses/${course.id}`}>View details</Link></td>
                                     </tr>
                                 ))}
                                 </tbody>
