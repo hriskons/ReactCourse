@@ -228,11 +228,11 @@ class AddCourse extends React.Component {
                 <FormControl.Feedback />
               </InputGroup>
             </FormGroup>  
-              <div className="form-button">
-                <Button disabled={this.isButtonDisable}
-                        type="submit"
-                        onClick={this.handleSubmit}> Submit </Button>
-              </div>
+            <div className="form-button">
+              <Button disabled={this.isButtonDisable}
+                      type="submit"
+                      onClick={this.handleSubmit}> Submit </Button>
+            </div>
           </form>
         </div>
       </div>
