@@ -98,44 +98,6 @@
         "01"
       ],
       "description": "<p>This is a certified program by Athens Tech College, the first educational institution in Greece that specialises in computer science and ICT studies.</p><p>Participant’s registration (payment’s completion) implies full compliance and acceptance of Code.Learn Terms &amp; Conditions.</p>"
-    },
-    {
-      "id": "10",
-      "title": "Data Analytics",
-      "imagePath": "\"https://www.codehub.gr/wp-content/uploads/2018/07/AdvancedAnalytics_1200x628.jpg\"",
-      "price": {
-        "normal": "300",
-        "early_bird": "200"
-      },
-      "date": {
-        "start_date": "01-05-2019",
-        "end_date": "01-06-2019"
-      },
-      "duration": "1month",
-      "open": true,
-      "instructors": [
-        "02"
-      ],
-      "description": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
-    },
-    {
-      "id": "100",
-      "title": "crm",
-      "imagePath": "https://www.codehub.gr/wp-content/uploads/2018/07/AdvancedAnalytics_1200x628.jpg",
-      "price": {
-        "normal": "200",
-        "early_bird": "100"
-      },
-      "date": {
-        "start_date": "01-05-2019",
-        "end_date": "01-06-2019"
-      },
-      "duration": "1month",
-      "open": true,
-      "instructors": [
-        "02"
-      ],
-      "description": "kjdjskdhdjfsdjkfsdjfhsdjfkhsdfjsdkfjsdklfjsdklfjsdklfjsdklf"
     }
   ],
   "instructors": [
