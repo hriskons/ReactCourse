@@ -21,6 +21,14 @@ class Counter extends Component {
       this.props.onIncrement : this.props.onDecrement, 5000);
   }
 
+  onMultiply = () => {
+    this.props.onMultiply();
+  }
+
+  onDivision = () => {
+    this.props.onDivision();
+  }
+
   render() {
     const { onIncrement, onDecrement, value } = this.props;
     return (
@@ -29,6 +37,7 @@ class Counter extends Component {
           onIncrement={onIncrement}
           actionIfOdd={this.actionIfOdd}
           actionAsync={this.actionAsync}
+          onMultiply = {this.onMultiply}
         />
         <div className="col-xs-4">
           <div style={{fontSize: "120px"}}>{value}</div>
@@ -37,6 +46,7 @@ class Counter extends Component {
           onDecrement={onDecrement}
           actionIfOdd={this.actionIfOdd}
           actionAsync={this.actionAsync}
+          onDivision={this.onDivision}
         />
       </div>
     )
@@ -46,7 +56,9 @@ class Counter extends Component {
 Counter.propTypes = {
   value: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired
+  onDecrement: PropTypes.func.isRequired,
+  onMultiply: PropTypes.func.isRequired,
+  onDivision: PropTypes.func.isRequired
 }
 
 export default connect(mapStateToProps)(Counter);

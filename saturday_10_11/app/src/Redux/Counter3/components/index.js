@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Counter from "./Counter";
 import { connect } from "react-redux";
 import { addAction } from "../actions";
-import { INCREMENT, DECREMENT } from "../constants/action-types";
+import { INCREMENT, DECREMENT, MULTIPLY, DIVISION } from "../constants/action-types";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -16,6 +16,8 @@ class App extends Component {
       <Counter
        onIncrement={() => this.props.addAction(INCREMENT)}
        onDecrement={() => this.props.addAction(DECREMENT)}
+       onMultiply={() => this.props.addAction(MULTIPLY)}
+       onDivision={() => this.props.addAction(DIVISION)}
       />
     );
   }
