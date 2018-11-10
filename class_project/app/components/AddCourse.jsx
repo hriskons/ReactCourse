@@ -1,6 +1,8 @@
 import React from 'react';
 import {FormGroup, ControlLabel, HelpBlock, FormControl, Panel, DropdownButton,
   Radio, Checkbox, Button, Form, Col, InputGroup, Glyphicon, MenuItem, Grid, Row} from 'react-bootstrap';
+import ReactHtmlParser from 'react-html-parser';
+
 
 
 function FieldGroup({blur, id, label, help, ...props }) {
@@ -23,6 +25,7 @@ class AddCourse extends React.Component {
     this.updateCheckBoxes  =this.updateCheckBoxes.bind(this);
     this.initializeFormValues = this.initializeFormValues.bind(this);
     this.updateBookableValue  =this.updateBookableValue.bind(this);
+    this.prepareRequest  =this.prepareRequest.bind(this);
 
     this.state = {
       Title:'',
@@ -36,12 +39,11 @@ class AddCourse extends React.Component {
       isCheck1:true,
       isCheck2:false,
       isBookable:false,
-      coursesItems: []
+      coursesItems: [],
     };
   }
 
   componentDidMount(){
-    console.log("after post");
     fetch('http://localhost:3000/courses')
     .then(function(response) {
         return response.json();
@@ -49,16 +51,34 @@ class AddCourse extends React.Component {
         this.setState({
           coursesItems:courses
         });
-     console.log('retrieve', courses);
-
-    });
-    console.log('1', this.state.coursesItems);
-
-    this.initializeFormValues();
+        console.log("array", courses);
+    }).then(()=>{
+        this.initializeFormValues();
+    })
+    
   }
 
   initializeFormValues(){
-    this.isButtonDisable = true;
+    if(this.props.match.params.id !== undefined){
+      var course = this.state.coursesItems.find(item =>  item.id == this.props.match.params.id);
+      console.log("is", course===undefined);
+      if(course!==undefined){
+        this.setState({
+          Title: course.title,
+          Duration:course.duration,
+          ImagePath: course.imagePath,
+          isBookable :course.open,
+          isCheck1: course.instructors[0]=='01'? true:false,
+          isCheck2: course.instructors[0]=='02'? true:false,
+          Description: ReactHtmlParser(course.Description),
+          StartDate: course.dates.start_date,
+          EndDate: course.dates.end_date,
+          EarlyBid:course.price.early_bird,
+          Normal:course.price.normal
+        });  
+     }
+  }
+    this.isButtonDisable = false;
   }
   
 
@@ -68,23 +88,10 @@ class AddCourse extends React.Component {
       this.setState({[fieldName]: event.target.value});
     }
 
+
   updateCheckBoxes(e){
     this.setState({"isCheck1": !this.state.isCheck1});
     this.setState({"isCheck2": !this.state.isCheck2});
-    // if(e.target.name=='Chk1'){
-    //   setTimeout( () => {
-    //     this.setState({"isCheck1": !this.state.isCheck1});
-    //     this.setState({"isCheck2": !this.state.isCheck2});
-
-    //   }, 0);
-    // }
-    // else{
-    //   setTimeout( () => {
-    //     this.setState({"isCheck2": !this.state.isCheck2});
-    //     this.setState({"isCheck1": !this.state.isCheck1});
-
-    //   }, 0);
-    // }
     this.groupValidation();
   }
 
@@ -94,29 +101,39 @@ class AddCourse extends React.Component {
     this.groupValidation();
   }
 
+  prepareRequest(idParam, methodParam){
+    let id =idParam
+    let endPoint = methodParam =='PUT'? '/' + idParam: '';
+          console.log("id", id);
+          let instructorSelected = this.state.isCheck1?"01":"02";
+          console.log('submit form', this.state.value);
+          var data = {"id": String(id),"title":this.state.Title, "imagePath": this.state.ImagePath,
+              "price":{"normal":this.state.Normal, "early_bird":this.state.EarlyBid},
+            "dates":{"start_date":this.state.StartDate, "end_date":this.state.EndDate},
+            "duration":this.state.Duration, "open":this.state.isBookable,
+            "instructors":[
+              instructorSelected
+            ], "description":this.state.Description};
+
+      fetch("http://localhost:3000/courses" + endPoint , {
+            method: methodParam, // or 'PUT'
+            body: JSON.stringify(data), // data can be `string` or {object}!
+            headers:{
+              'Content-Type': 'application/json'
+            }
+          }).then(res => res.json())
+          .then(response => console.log('Success:', JSON.stringify(response)))
+          .catch(error => console.error('Error:', error));
+  }
+
+
   handleSubmit(e){
-    let id =this.state.coursesItems.length +1;
-    console.log("id", id);
-    let instructorSelected = this.state.isCheck1?"01":"02";
-    console.log('submit form', this.state.value);
-    var data = {"id": id.toString,"title":this.state.Title, "imagePath": this.state.ImagePath,
-  "price":{"normal":this.state.Normal, "early_bird":this.state.EarlyBid},
-"dates":{"start_date":this.state.StartDate, "end_date":this.state.EndDate},
-"duration":this.state.Duration, "open":this.state.isBookable,
- "instructors":[
-  instructorSelected
-], "description":this.state.Description};
-
-
-    fetch("http://localhost:3000/courses", {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
-      headers:{
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json())
-    .then(response => console.log('Success:', JSON.stringify(response)))
-    .catch(error => console.error('Error:', error));
+    if(this.props.match.params.id !== undefined){
+          this.prepareRequest(this.props.match.params.id, 'PUT');
+          }
+    else{
+      this.prepareRequest(this.state.coursesItems.length +1, 'POST');
+    }
     //e.preventDefault();
   }
 
@@ -152,6 +169,7 @@ class AddCourse extends React.Component {
             <FormGroup controlId="Title" bsClass="formGroup">
               <ControlLabel bsClass="label">Title</ControlLabel>
               <FormControl  type="Text"
+                            defaultValue={this.state.Title}
                             name="Title"
                             onBlur={this.groupValidation}
                             placeholder="Title"
@@ -163,6 +181,7 @@ class AddCourse extends React.Component {
               <ControlLabel bsClass="label">Duration</ControlLabel>
               <FormControl  type="Text"
                             name="Duration"
+                            defaultValue={this.state.Duration}
                             onBlur={this.groupValidation}
                             placeholder="Dutation"
                             onChange={this.handleChange}/>
@@ -173,6 +192,7 @@ class AddCourse extends React.Component {
               <ControlLabel bsClass="label">ImagePath</ControlLabel>
               <FormControl  type="Text"
                             name="ImagePath"
+                            defaultValue={this.state.ImagePath}
                             onBlur={this.groupValidation}
                             placeholder="Image Path"
                             onChange={this.handleChange}/>
@@ -191,6 +211,7 @@ class AddCourse extends React.Component {
               <ControlLabel bsClass="label">Description</ControlLabel>
               <FormControl  componentClass="textarea"
                             name="Description"
+                            defaultValue={this.state.Description}
                             onBlur={this.groupValidation}
                             placeholder="Description"
                             onChange={this.handleChange}/>
@@ -205,6 +226,7 @@ class AddCourse extends React.Component {
               type="date"
               name="StartDate"
               max="9999-12-31"
+              defaultValue={this.state.StartDate}
               onBlur={this.groupValidation}
               placeholder="Start Date"
               onChange={this.handleChange}
@@ -220,6 +242,7 @@ class AddCourse extends React.Component {
               type="date"
               max="9999-12-31"
               name="EndDate"
+              defaultValue={this.state.EndDate}
               onBlur={this.groupValidation}
               placeholder="End Date"
               onChange={this.handleChange}
@@ -234,6 +257,7 @@ class AddCourse extends React.Component {
               <InputGroup>
                   <FormControl  type="number"
                                 name="EarlyBid"
+                                defaultValue={this.state.EarlyBid}
                                 onBlur={this.groupValidation}
                                 placeholder="Early Bid"
                                 onChange={this.handleChange} />
@@ -247,6 +271,7 @@ class AddCourse extends React.Component {
               <InputGroup>
                 <FormControl  onBlur={this.groupValidation}
                               name="Normal"
+                              defaultValue={this.state.Normal}
                               placeholder="Early Bid"
                               onChange={this.handleChange}
                               type="number" />
@@ -257,7 +282,7 @@ class AddCourse extends React.Component {
             <div className="form-button">
               <Button disabled={this.isButtonDisable}
                       type="submit"
-                      onClick={this.handleSubmit}> Submit </Button>
+                      onClick={this.handleSubmit}>Submit </Button>
             </div>
           </form>
         </div>

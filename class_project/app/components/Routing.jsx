@@ -13,6 +13,7 @@ const Routing = () => {
             <Switch>
                 <Route exact path="/" component={ Dashboard } />
                 <Route exact path="/courses" component={ Courses } />
+                <Route exact path="/courses/edit-course/:id" component={ AddCourse } />
                 <Route path="/courses/:id" component={ Course } />
                 <Route path="/add-course" component={ AddCourse } />       
                 <Route component={ NotFoundPage } />
