@@ -14,7 +14,7 @@ function CoursePanel(props) {
                     </div>
                     <Image className="grid-item-image" src={props.imagePath} responsive/>
                     <div className ="grid-item-body">
-                            Price: <b>{props.price}{'\u20AC'}</b> | Bookable:
+                            Price: <b>{props.price}{'\u20AC'}</b> | Bookable: { props.open && <span>&#10004;</span>} { !props.open && <span>&#10006;</span>}
                             <br/>
                             Duration: <b>{props.days}</b>
                             <br/>
@@ -68,7 +68,8 @@ class Courses extends React.Component {
                                                 title       = {item.title} 
                                                 id          = {item.id} 
                                                 days        = {item.duration} 
-                                                dates       = {item.dates} 
+                                                dates       = {item.dates}
+                                                open        = {item.open}
                                                 key         = {item.id}/>
                             ))}
                             </Row>
