@@ -7,19 +7,19 @@ describe("wordCount function: ", () => {
     expect(wordCount(testStr)).toBe(1);
   });
 
-  xit("must return 4 with the below string", () => {
+  it("must return 4 with the below string", () => {
     const testStr = "Thryle ton gipedon Olympiake!";
 
     expect(wordCount(testStr)).toBe(4);
   });
 
-  xit("must return 0 with an empty string", () => {
+  it("must return 0 with an empty string", () => {
     const testStr = "";
 
     expect(wordCount(testStr)).toBe(0);
   });
 
-  xit("must return new Error if argument is not a string", () => {
+  it("must return new Error if argument is not a string", () => {
     const testStr = 123; // Not a string!!!!
 
     expect(() => wordCount(testStr)).toThrowError("Prepei na mas doseis string, re!");
