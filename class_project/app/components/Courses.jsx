@@ -28,7 +28,6 @@ function CoursePanel(props) {
 }
 
 class Courses extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {

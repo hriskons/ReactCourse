@@ -3,18 +3,6 @@ import {FormGroup, ControlLabel, HelpBlock, FormControl, Panel, DropdownButton,
   Radio, Checkbox, Button, Form, Col, InputGroup, Glyphicon, MenuItem, Grid, Row} from 'react-bootstrap';
 import ReactHtmlParser from 'react-html-parser';
 
-
-
-function FieldGroup({blur, id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}  bsClass="formGroup">
-      <ControlLabel bsClass="label">{label}</ControlLabel>
-      <FormControl {...props} onBlur={blur}/>
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
-
 class AddCourse extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -84,7 +72,6 @@ class AddCourse extends React.Component {
 
     handleChange(event) {
       let fieldName = event.target.name;
-      let fleldVal = event.target.value;
       this.setState({[fieldName]: event.target.value});
     }
 
@@ -127,14 +114,13 @@ class AddCourse extends React.Component {
   }
 
 
-  handleSubmit(e){
+  handleSubmit(){
     if(this.props.match.params.id !== undefined){
-          this.prepareRequest(this.props.match.params.id, 'PUT');
-          }
+      this.prepareRequest(this.props.match.params.id, 'PUT');
+    }
     else{
       this.prepareRequest(this.state.coursesItems.length +1, 'POST');
     }
-    //e.preventDefault();
   }
 
   
@@ -150,17 +136,6 @@ class AddCourse extends React.Component {
   }
 
   render() {
-  const panelBackground =
-  {
-    backgroundColor: '#c8cace'
-  };
-
- 
-
-  //let formatter = Globalize.dateFormatter({ raw: 'MMM dd, yyyy' });
-
- 
-
     return (
       <div className ="form">
         <span className="main-title">Add Course</span>
@@ -199,7 +174,6 @@ class AddCourse extends React.Component {
               <FormControl.Feedback />
             </FormGroup>
 
-            {/* //checkboxes */}
             <ControlLabel className="checkbox-title">Bookable</ControlLabel>
             <Checkbox className="checkbox" checked={this.state.isBookable} name="Bookable" onChange={this.updateBookableValue}>Bookable</Checkbox>
 
@@ -223,32 +197,30 @@ class AddCourse extends React.Component {
               <ControlLabel bsClass="label">StartDate</ControlLabel>
 
               <FormControl
-              type="date"
-              name="StartDate"
-              max="9999-12-31"
-              defaultValue={this.state.StartDate}
-              onBlur={this.groupValidation}
-              placeholder="Start Date"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-
+                type="date"
+                name="StartDate"
+                max="9999-12-31"
+                defaultValue={this.state.StartDate}
+                onBlur={this.groupValidation}
+                placeholder="Start Date"
+                onChange={this.handleChange}
+              />
+              <FormControl.Feedback />
             </FormGroup>
           
             <FormGroup controlId="EndDate" bsClass="formGroup">
               <ControlLabel bsClass="label">EndDate</ControlLabel>
 
               <FormControl
-              type="date"
-              max="9999-12-31"
-              name="EndDate"
-              defaultValue={this.state.EndDate}
-              onBlur={this.groupValidation}
-              placeholder="End Date"
-              onChange={this.handleChange}
-            />
-            <FormControl.Feedback />
-
+                type="date"
+                max="9999-12-31"
+                name="EndDate"
+                defaultValue={this.state.EndDate}
+                onBlur={this.groupValidation}
+                placeholder="End Date"
+                onChange={this.handleChange}
+              />
+              <FormControl.Feedback />
             </FormGroup>
 
             <ControlLabel className="sub-title">Price</ControlLabel>
@@ -279,6 +251,7 @@ class AddCourse extends React.Component {
                 <FormControl.Feedback />
               </InputGroup>
             </FormGroup>  
+            
             <div className="form-button">
               <Button disabled={this.isButtonDisable}
                       type="submit"
@@ -292,11 +265,3 @@ class AddCourse extends React.Component {
 }
 
 export default AddCourse;
-
- 
-            {/* <DateTimePicker
-               //editFormat={formatter} 
-              // defaultValue={new Date()}
-               format={{ raw: 'MMM dd, yyyy' }}
-               time={false}
-              /> */}

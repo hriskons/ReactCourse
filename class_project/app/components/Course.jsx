@@ -120,26 +120,26 @@ class Course extends React.Component {
                         Contacts
                         <Grid>
                             <Row className="show-grid">
-                                <CourseDetailPanel  imagePath = {courses[courseId].imagePath} 
-                                                    price = {courses[courseId].price.normal} 
-                                                    title = {courses[courseId].title} 
-                                                    id = {courses[courseId].id} 
-                                                    days = {courses[courseId].duration} 
-                                                    dates = {courses[courseId].dates} 
-                                                    description={courses[courseId].description}
-                                                    open = {courses[courseId].open}
+                                <CourseDetailPanel  imagePath       = {courses[courseId].imagePath} 
+                                                    price           = {courses[courseId].price.normal} 
+                                                    title           = {courses[courseId].title} 
+                                                    id              = {courses[courseId].id} 
+                                                    days            = {courses[courseId].duration} 
+                                                    dates           = {courses[courseId].dates} 
+                                                    description     = {courses[courseId].description}
+                                                    open            = {courses[courseId].open}
                                                     instructorsData = {instructors}/>
                             </Row>
                             <Row>
                                 <h1>Instructors</h1>
                                 {courses[courseId].instructors.map(item => (
-                                                <Instructors    name   = {instructors[+item - 1].name}
-                                                                email  = {instructors[+item - 1].email}
-                                                                id      = {instructors[+item - 1].id}
-                                                                dob     = {instructors[+item - 1].dob}
-                                                                linkedin = {instructors[+item - 1].linkedin}
-                                                                bio     = {instructors[+item - 1].bio}
-                                                                key = {item}/>
+                                                <Instructors    name        = {instructors[+item - 1].name}
+                                                                email       = {instructors[+item - 1].email}
+                                                                id          = {instructors[+item - 1].id}
+                                                                dob         = {instructors[+item - 1].dob}
+                                                                linkedin    = {instructors[+item - 1].linkedin}
+                                                                bio         = {instructors[+item - 1].bio}
+                                                                key         = {item}/>
                                     ))}
                             </Row>
                         </Grid>
