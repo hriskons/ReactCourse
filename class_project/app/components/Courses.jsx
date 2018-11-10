@@ -14,7 +14,7 @@ function CoursePanel(props) {
                     </div>
                     <Image className="grid-item-image" src={props.imagePath} responsive/>
                     <div className ="grid-item-body">
-                            Price: <b>{props.price}{'\u20AC'}</b> | Bookable: {props.open && <p>&#10004;</p>} {!props.open && <p>&#10006;</p>}
+                            Price: <b>{props.price}{'\u20AC'}</b> | Bookable: { props.open && <span>&#10004;</span>} { !props.open && <span>&#10006;</span>}
                             <br/>
                             Duration: <b>{props.days}</b>
                             <br/>

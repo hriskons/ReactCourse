@@ -48,7 +48,7 @@ function CourseDetailPanel(props) {
                </Row>
                <Row>
                     <Col lg={2} md={3} sm={6} key = {props.id}>
-                        Bookable:
+                        Bookable: { props.open && <span>&#10004;</span>} { !props.open && <span>&#10006;</span>}
                    </Col>
                    <Col lg = {8} mdPush ={4}> Dates: {props.dates.start_date} - {props.dates.end_date} </Col>
                </Row>
@@ -127,6 +127,7 @@ class Course extends React.Component {
                                                     days = {courses[courseId].duration} 
                                                     dates = {courses[courseId].dates} 
                                                     description={courses[courseId].description}
+                                                    open = {courses[courseId].open}
                                                     instructorsData = {instructors}/>
                             </Row>
                             <Row>
